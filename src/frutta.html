@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aquisto frutta</title>
+	<link rel="stylesheet" href="/css/main.css" type="text/css">
+	<link rel="stylesheet" href="/css/catalog.css" type="text/css">
+</head>
+<body>
+	<nav>
+		<ul class="navbar">
+  		<li class="navbar-item"><a href="./home.html">Home</a></li>
+  		<li class="navbar-item"><a href="#">Chi siamo</a></li>
+  		<li class="navbar-item"><a href="#">Contattaci</a></li>
+		</ul>
+	</nav>
+
+	<h1>Catalogo frutta</h1>
+
+	<ul class="catalog">
+		<li>
+			<p>Mele</p>
+			<p>Prezzo <span class="price">0.49</span></p>
+			<input type="number" name="mele" value="0">
+		</li>
+		<li>
+			<p>Pere</p>
+			<p>Prezzo <span class="price">1.79</span></p>
+			<input type="number" name="pere" value="0">
+		</li>
+		<li>
+			<p>Banane</p>
+			<p>Prezzo <span class="price">1.59</span></p>
+			<input type="number" name="banane" value="0">
+		</li>
+	</ul>
+
+	<button onclick="buy()" class="buy-button">Acquista ora</button>
+
+	<script type="text/javascript">
+		function buy() {
+			var prices = document.getElementsByClassName("price");
+			var elements = document.getElementsByTagName("input");
+			var total = 0;
+			for (var i = 0; i < prices.length; i++) {
+				total += prices[i].innerHTML * elements[i].value;
+			}
+
+			for(var ii=0; ii < elements.length; ii++) {
+				if (elements[ii].type == "number") {
+					elements[ii].value = 0
+				}
+			}
+			alert('Grazie per averci scelto, ecco il tuo totale: ' + total);
+		}
+	</script>
+
+</body>
+</html>
